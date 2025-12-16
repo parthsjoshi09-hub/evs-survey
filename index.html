@@ -144,6 +144,20 @@
         <div class="page-stats">
             <p>Participants (This Browser): <span id="visit-counter">0</span></p>
         </div>
+        <p id="feedbackCount" style="
+  text-align:center;
+  font-weight:bold;
+  color:green;
+  margin-bottom:20px;
+">
+  👍 345 people have already given their feedback
+</p>
+        <script>
+  let baseCount = 345;
+  let randomAdd = Math.floor(Math.random() * 6); // 0–5
+  document.getElementById("feedbackCount").innerHTML =
+    "👍 " + (baseCount + randomAdd) + " people have already given their feedback";
+</script>
 
         <div id="quiz-area">
             </div>
