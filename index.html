@@ -152,12 +152,7 @@
 ">
   👍 345 people have already given their feedback
 </p>
-        <script>
-  let baseCount = 345;
-  let randomAdd = 1; // everytime =+1
-  document.getElementById("feedbackCount").innerHTML =
-    "👍 " + (baseCount + randomAdd) + " people have already given their feedback";
-</script>
+       
 
         <div id="quiz-area">
             </div>
@@ -172,6 +167,30 @@
             </div>
         </div>
     </div>
+   
+
+<!-- Script for dynamic +1 feedback count -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get previous count from localStorage, or start at 345
+    let count = localStorage.getItem('feedbackCount');
+    if (count === null) {
+      count = 345;
+    } else {
+      count = Number(count);
+    }
+
+    // Increment by 1
+    count += 1;
+
+    // Save new count back to localStorage
+    localStorage.setItem('feedbackCount', count);
+
+    // Update the HTML
+    document.getElementById("feedbackCount").innerHTML =
+      "👍 " + count + " people have already given their feedback";
+  });
+</script>
 
     <script>
         // --- JAVASCRIPT LOGIC ---
