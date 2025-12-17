@@ -349,5 +349,34 @@
             updateVisitCounter();
         });
     </script>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+
+    let count = localStorage.getItem('feedbackCount');
+    if (count === null) {
+      count = 146;
+    } else {
+      count = Number(count);
+    }
+
+    let toggle = localStorage.getItem('feedbackToggle');
+    if (toggle === null) {
+      toggle = 'true';
+    }
+
+    if (toggle === 'true') {
+      count = count + 1;
+      localStorage.setItem('feedbackToggle', 'false');
+    } else {
+      localStorage.setItem('feedbackToggle', 'true');
+    }
+
+    localStorage.setItem('feedbackCount', count);
+
+    document.getElementById("feedbackCount").innerHTML =
+      "👍 " + count + " people have already given their feedback";
+
+  });
+</script>
 </body>
 </html>
